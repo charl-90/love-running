@@ -1,2 +1,2 @@
 # love-running
-### This is a walkthrough project, It will allows me to put what I have learned into practice,
+### This is a walkthrough project, It will allow me to put what I have learned into practice,
