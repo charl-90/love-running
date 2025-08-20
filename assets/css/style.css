@@ -7,7 +7,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-/* General body styles */
+/* General project styles */
 body {
   min-height: 100vh;
   display: flex;
@@ -15,6 +15,19 @@ body {
   /* Generic project styles */
   color: #3a3a3a;
   font-family: "DM Sans", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #252525;
+}
+
+.hidden-heading {
+  display: none;
 }
 
 /*Header*/
@@ -32,13 +45,6 @@ header {
 header a {
   text-decoration: none;
   color: inherit;
-}
-
-h1 {
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #252525;
 }
 
 #menu {
@@ -82,11 +88,101 @@ nav {
 
 /*Main Content*/
 main {
-  background-color: lightblue;
   /* Make main elemant take up any surplus space to push footer down*/
   flex: 1 0 auto;
   margin-top: 47px;
 }
+
+/* Hero section */
+#hero {
+  height: 600px;
+  width: 100%;
+  background: url("../images/hero-image.webp") no-repeat center center/cover;
+  position: relative;
+}
+/*final rgba value sets the opacity si it is semi-transparent*/
+#cover-text {
+  background-color: rgba(241, 109, 107, 7);
+  font-size: 130%;
+  position: absolute;
+  bottom: 30px;
+  width: 80%;
+  min-height: 200px;
+  padding-top: 40px;
+  padding-left: 10px;
+}
+#cover-text > h2,
+#cover-text > h3 {
+  color: #ffffff;
+}
+
+#reasons {
+  width: 90%;
+  margin: 20px auto;
+}
+#reasons h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 280%;
+}
+
+#benefits-physical > div,
+#benefits-mental > div {
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+#benefits p {
+  padding: 0 20px;
+}
+
+#benefits hr {
+  border-top: 1px solid #3a3a3a;
+  margin: 5px 0;
+}
+
+#circle-cover-bg {
+  background: url("../images/reasons-image.webp") no-repeat top center / cover;
+  height: 90vw;
+  width: 90vw;
+  margin-bottom: 20px;
+  /* make the square image into a circle */
+  border-radius: 50%;
+  max-width: 300px;
+  max-width: 300px;
+}
+
+#benefits-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Meetup Times section */
+#times {
+  background: url("../images/dublin-city.webp") no-repeat center / cover;
+  /* Handles responsive without the need for media queries */
+  display: flex;
+  flex-wrap: wrap;
+}
+#times div {
+  color: #fafafa;
+  background-color: rgba(0, 0, 0, .6);
+  padding: 15px;
+  text-align: center;
+  /* This will not wrap on screens of less than 400px wide. Each div will expand to fill the available space on its row*/
+flex-basis: 200px;
+  flex-grow: 1;
+  /* Create a grid of meetup time dives over the background image */
+  border: 2px solid white
+ 
+
+}
+
+#times h3 {
+  /* Overrides the heading color set in general styles */
+  color: #fafafa;
+}
+
 /*Footer*/
 #social-networks {
   text-align: center;
@@ -132,10 +228,58 @@ main {
     /* push main content down to accommodate larger header */
     margin-top: 79px;
   }
-  /* Larger devices (laptops and desktops, 992px and up)*/
-  @media screen and (min-width: 992px) {
-    #menu a:hover {
-      border-bottom: 1px solid #3a3a3a;
-    }
+
+  /* Hero section */
+  #cover-text {
+    width: 300px;
+    right: 50px;
+  }
+
+  /* Reasons section */
+  #benefits-physical,
+  #benefits-mental {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  #benefits-physical > div,
+  #benefits-mental > div {
+    width: 75%;
+  }
+  #benefits-mental > div {
+    text-align: end;
+    align-self: flex-end;
+  }
+}
+
+/* Larger devices (laptops and desktops, 992px and up)*/
+@media screen and (min-width: 992px) {
+  #menu a:hover {
+    border-bottom: 1px solid #3a3a3a;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  /* reasons section */
+  #benefits {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #benefits > div {
+    flex: 1;
+  }
+  #benefits-image {
+    order: 0;
+  }
+  #benefits-mental {
+    order: 1;
+  }
+
+  #benefits-mental > div {
+    align-self: flex-start;
+  }
+  #benefits-physical > div {
+    align-self: flex-end;
   }
 }
